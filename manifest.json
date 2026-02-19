@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Verus Web Wallet",
+  "version": "0.1.0",
+  "description": "A self-custodial cryptocurrency wallet for Verus (VRSC) and PBaaS chains",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://el0.verus.io/*",
+    "https://el1.verus.io/*",
+    "https://el2.verus.io/*",
+    "https://el3.verus.io/*",
+    "https://insight.verus.io/*",
+    "https://api.verus.services/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://*/*"]
+    }
+  ]
+}

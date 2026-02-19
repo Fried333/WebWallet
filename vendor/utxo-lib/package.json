@@ -1,0 +1,116 @@
+{
+  "name": "@bitgo/utxo-lib",
+  "version": "1.9.6",
+  "description": "Client-side Bitcoin and Verus JavaScript library",
+  "main": "dist/src/index.js",
+  "engines": {
+    "node": ">=10.22.0",
+    "npm": ">=3.10.10"
+  },
+  "keywords": [
+    "bitgo",
+    "utxo",
+    "bitcoinjs",
+    "bitcoin",
+    "zcash",
+    "verus",
+    "dash",
+    "browserify",
+    "javascript"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "coverage-report": "nyc report --reporter=lcov",
+    "coverage-html": "nyc report --reporter=html",
+    "coverage": "npm run build && BITGO_UTXO_LIB_TEST_EXPECTED_COUNT=4125 nyc --check-coverage --branches 80 --functions 80 mocha",
+    "integration-test": "mocha test/integration/",
+    "standard": "standard",
+    "test": "npm run standard && npm run coverage",
+    "unit-test": "mocha"
+  },
+  "nyc": {
+    "exclude": [
+      "dist/**",
+      "test/**"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "dist/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miketout/BitGoJS.git#utxo-lib-verus"
+  },
+  "files": [
+    "dist/src"
+  ],
+  "dependencies": {
+    "@bitgo/blake2b": "3.0.1",
+    "@noble/curves": "1.9.7",
+    "bech32": "0.0.3",
+    "bigi": "1.4.0",
+    "bip32": "3.0.0",
+    "bip66": "1.1.0",
+    "bitcoin-ops": "git+https://github.com/VerusCoin/bitcoin-ops",
+    "bs58check": "2.0.0",
+    "create-hash": "1.1.0",
+    "create-hmac": "1.1.3",
+    "debug": "~3.1.0",
+    "ecurve": "1.0.0",
+    "merkle-lib": "2.0.10",
+    "pushdata-bitcoin": "1.0.1",
+    "randombytes": "2.0.1",
+    "safe-buffer": "5.0.1",
+    "typeforce": "1.11.3",
+    "varuint-bitcoin": "1.0.4",
+    "verus-typescript-primitives": "git+https://github.com/VerusCoin/verus-typescript-primitives.git",
+    "wif": "2.0.1"
+  },
+  "devDependencies": {
+    "@bitcoin-js/tiny-secp256k1-asmjs": "^2.2.4",
+    "@types/bn.js": "5.1.1",
+    "@types/fs-extra": "9.0.12",
+    "@types/mocha": "9.0.0",
+    "@types/node": "24.1.0",
+    "axios": "1.11.0",
+    "bip39": "2.3.0",
+    "bip65": "1.0.1",
+    "bs58": "4.0.0",
+    "dhttp": "2.4.2",
+    "fs-extra": "9.1.0",
+    "minimaldata": "1.0.2",
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "proxyquire": "1.4.0",
+    "sinon": "1.12.2",
+    "standard": "9.0.2",
+    "ts-node": "10.9.2",
+    "typescript": "5.8.3"
+  },
+  "resolutions": {
+    "ansi-regex": "5.0.1",
+    "jsonpointer": "5.0.0",
+    "ajv": "6.12.3",
+    "minimatch": "3.0.5",
+    "shelljs": "0.8.5",
+    "pbkdf2": "3.1.3",
+    "brace-expansion": "1.1.12",
+    "cross-spawn": "7.0.5",
+    "base-x": "3.0.11",
+    "@babel/helpers": "7.26.10",
+    "word-wrap": "1.2.4",
+    "semver": "6.3.1",
+    "braces": "3.0.3",
+    "minimist": "1.2.6",
+    "@babel/traverse": "7.23.2",
+    "es5-ext": "0.10.63",
+    "follow-redirects": "1.15.6",
+    "json5": "2.2.2",
+    "nanoid": "3.3.8",
+    "bip32": "3.0.0",
+    "b4a": "1.6.7"
+  },
+  "license": "MIT"
+}
